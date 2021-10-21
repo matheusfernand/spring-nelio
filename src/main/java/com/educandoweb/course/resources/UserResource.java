@@ -1,4 +1,4 @@
-package com.educandoweb.workshop.resources;
+package com.educandoweb.course.resources;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.educandoweb.course.entities.User;
-import com.educandoweb.workshop.services.UserService;
+import com.educandoweb.course.services.UserService;
 
 @RestController
 @RequestMapping(value = "/users")
