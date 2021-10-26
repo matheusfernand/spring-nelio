@@ -31,11 +31,11 @@ public class ProductResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
-	@PostMapping
-	public ResponseEntity<Product> insert(@RequestBody Product obj) {
-		obj = product.insert(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-				.buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).body(obj);
-	}
+//	@PostMapping
+//	public ResponseEntity<Product> insert(@RequestBody Product obj) {
+//		obj = product.insert(obj);
+//		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+//				.buildAndExpand(obj.getId()).toUri();
+//		return ResponseEntity.created(uri).body(obj);
+//	}
 }
