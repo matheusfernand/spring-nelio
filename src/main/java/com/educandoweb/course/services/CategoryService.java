@@ -3,6 +3,7 @@ package com.educandoweb.course.services;
 import java.util.List;
 import java.util.Optional;
 
+import com.educandoweb.course.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +23,10 @@ public class CategoryService {
 	public Category findById(Long id) {
 		Optional<Category> obj = repository.findById(id);
 		return obj.get();
+	}
+
+	public List<Category> findByCategoryName(String name) {
+		List<Category> obj = repository.findByName(name);
+		return obj;
 	}
 }

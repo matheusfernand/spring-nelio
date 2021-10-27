@@ -30,6 +30,11 @@ public class UserService {
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 
+	public List<User> findByName(String name) {
+		List<User> obj = repository.findByName(name);
+		return obj;
+	}
+
 	public User insert(User obj) {
 		return repository.save(obj);
 	}
