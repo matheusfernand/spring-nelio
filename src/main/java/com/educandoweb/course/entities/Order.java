@@ -19,7 +19,7 @@ import javax.persistence.Table;
 import com.educandoweb.course.entities.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-@Entity
+@Entity(name = "tb_order")
 @Table(name = "tb_order")
 public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;

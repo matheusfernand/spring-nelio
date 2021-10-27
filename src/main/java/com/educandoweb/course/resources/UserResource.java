@@ -36,6 +36,12 @@ public class UserResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
+	@RequestMapping(value = "/phone/{phone}", method = RequestMethod.GET)
+	public ResponseEntity<List<User>> findByPhone(@PathVariable String phone) {
+		List<User> obj = service.findByPhone(phone);
+		return ResponseEntity.ok().body(obj);
+	}
+
 	@PostMapping
 	public ResponseEntity<User> insert(@RequestBody User obj) {
 		obj = service.insert(obj);
