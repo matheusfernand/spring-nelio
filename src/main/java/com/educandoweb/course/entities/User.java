@@ -2,30 +2,27 @@ package com.educandoweb.course.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name = "tb_user")
 @Table(name = "tb_user")
 public class User implements Serializable {
-	private static final long serialVersionUID = 1L;
+	private static final Long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String name;
 	private String email;
 	private String phone;
 	private String password;
-	
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "client")
 	private List<Order> orders = new ArrayList<>();
@@ -33,7 +30,7 @@ public class User implements Serializable {
 	public User() {
 	}
 
-	public User(Long id, String name, String email, String phone, String password) {
+	public User(Integer id, String name, String email, String phone, String password) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -42,11 +39,11 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
