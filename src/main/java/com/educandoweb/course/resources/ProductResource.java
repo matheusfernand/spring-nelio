@@ -35,13 +35,13 @@ import javax.persistence.criteria.Root;
 			return ResponseEntity.ok().body(list);
 		}
 
-		@GetMapping(value = "/{id}")
+		@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 		public ResponseEntity<Product> findById(@PathVariable String id) {
 			Product obj = service.findById(id);
 			return ResponseEntity.ok().body(obj);
 		}
 
-		@GetMapping("/name/{name}")
+		@RequestMapping(value = "/name/{name}", method = RequestMethod.GET)
 		public List<Product> findByName(@PathVariable("name") String name) {
 			return productRepository.findByName(name);
 		}

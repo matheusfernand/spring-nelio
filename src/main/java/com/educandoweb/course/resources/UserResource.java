@@ -46,7 +46,7 @@ public class UserResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
-	@GetMapping("/email/{email}")
+	@RequestMapping(value = "/email/{email}", method = RequestMethod.GET)
 	public List<User> findByEmail(@PathVariable("email") String email) {
 		return userRepository.findByEmail(email);
 	}
