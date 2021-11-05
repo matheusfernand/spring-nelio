@@ -2,12 +2,10 @@ package com.educandoweb.course.resources;
 
 import java.util.List;
 
+import com.educandoweb.course.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.educandoweb.course.entities.Category;
 import com.educandoweb.course.services.CategoryService;
@@ -28,6 +26,12 @@ public class 	CategoryResource {
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Category> findById(@PathVariable Long id) {
 		Category obj = service.findById(id);
+		return ResponseEntity.ok().body(obj);
+	}
+
+	@RequestMapping(value = "/categoryName/{name}", method = RequestMethod.GET)
+	public ResponseEntity<List<Category>> findByCategoryName(@PathVariable String name) {
+		List<Category> obj = service.findByCategoryName(name);
 		return ResponseEntity.ok().body(obj);
 	}
 }
