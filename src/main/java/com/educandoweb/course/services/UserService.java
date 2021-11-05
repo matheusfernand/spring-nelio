@@ -25,7 +25,7 @@ public class UserService {
 		return repository.findAll();
 	}
 
-	public User findById(String id) {
+	public User findById(Long id) {
 		Optional<User> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
@@ -40,19 +40,11 @@ public class UserService {
 		return obj;
 	}
 
-<<<<<<< HEAD
-=======
-//	public List<User> findByEmail(String email) {
-//		List<User> obj = customRepository.findByEmail(email);
-//		return obj;
-//	}
-
->>>>>>> 718b9bf4e1fae8a05420ca44ac9e01ca93ad1376
 	public User insert(User obj) {
 		return repository.save(obj);
 	}
 
-	public void delete(String id) {
+	public void delete(Long id) {
 		try {
 			repository.deleteById(id);
 		} catch (EmptyResultDataAccessException e) {
@@ -62,7 +54,7 @@ public class UserService {
 		}
 	}
 
-	public User update(String id, User obj) {
+	public User update(Long id, User obj) {
 		try {
 			User entity = repository.getOne(id);
 			updateData(entity, obj);
